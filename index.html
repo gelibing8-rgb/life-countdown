@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101820" />
+    <title>Life Countdown</title>
+    <link rel="manifest" href="assets/manifest.webmanifest" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Life Countdown</p>
+          <h1>人生倒计时</h1>
+          <p class="subtitle">默认按 80 岁计算，把时间边界放回每天的屏幕上。</p>
+        </div>
+        <div class="sync-pill" id="installStatus">本地优先 · PWA</div>
+      </section>
+
+      <section class="dashboard" aria-live="polite">
+        <div class="primary-panel">
+          <p class="panel-label">距离目标年龄还剩</p>
+          <div class="days-left"><span id="daysLeft">--</span><small>天</small></div>
+          <div class="time-grid">
+            <div><strong id="yearsLeft">--</strong><span>年</span></div>
+            <div><strong id="monthsLeft">--</strong><span>月</span></div>
+            <div><strong id="hoursLeft">--</strong><span>小时</span></div>
+          </div>
+        </div>
+
+        <div class="progress-panel">
+          <p class="panel-label">人生进度</p>
+          <div class="progress-ring" style="--progress: 0" id="progressRing">
+            <span id="lifePercent">--%</span>
+          </div>
+          <p class="hint" id="lifeSummary">填写生日后开始计算。</p>
+        </div>
+      </section>
+
+      <section class="controls">
+        <label>
+          出生日期
+          <input id="birthDate" type="date" />
+        </label>
+        <label>
+          目标年龄
+          <input id="targetAge" type="number" min="1" max="130" value="80" />
+        </label>
+        <label>
+          每日提醒时间
+          <input id="reminderTime" type="time" value="08:00" />
+        </label>
+      </section>
+
+      <section class="today">
+        <div>
+          <p class="panel-label">今天只做一件事</p>
+          <textarea id="todayFocus" rows="3" placeholder="写下今天最重要的一件事"></textarea>
+        </div>
+        <div class="actions">
+          <button id="saveButton">保存</button>
+          <button id="notifyButton" class="secondary">开启每日提醒</button>
+          <button id="exportButton" class="secondary">导出数据</button>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <article>
+          <span>本年已过</span>
+          <strong id="yearProgress">--%</strong>
+        </article>
+        <article>
+          <span>本月已过</span>
+          <strong id="monthProgress">--%</strong>
+        </article>
+        <article>
+          <span>本周已过</span>
+          <strong id="weekProgress">--%</strong>
+        </article>
+      </section>
+
+      <section class="devices">
+        <h2>设备关联路线</h2>
+        <div class="device-grid">
+          <article>
+            <strong>手机</strong>
+            <span>已支持 PWA 安装与本地提醒</span>
+          </article>
+          <article>
+            <strong>手表</strong>
+            <span>规划通过小组件或 complication 显示</span>
+          </article>
+          <article>
+            <strong>手环</strong>
+            <span>规划通过系统健康数据或开放 API 接入</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
+

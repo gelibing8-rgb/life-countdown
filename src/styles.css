@@ -1,0 +1,251 @@
+:root {
+  color-scheme: dark;
+  --bg: #101820;
+  --panel: #17222c;
+  --panel-2: #1e2b35;
+  --text: #eef6f2;
+  --muted: #9fb0b7;
+  --line: #2d3d47;
+  --accent: #5ee6a8;
+  --accent-2: #61c7df;
+  --danger: #ffb86b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(94, 230, 168, 0.12), transparent 26rem),
+    linear-gradient(135deg, #101820 0%, #111d25 55%, #0d141a 100%);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.eyebrow,
+.panel-label {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(36px, 7vw, 76px);
+  line-height: 1;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.subtitle {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.sync-pill {
+  border: 1px solid rgba(94, 230, 168, 0.45);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  background: rgba(94, 230, 168, 0.08);
+}
+
+.dashboard,
+.controls,
+.today,
+.metrics,
+.devices {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard {
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
+}
+
+.primary-panel,
+.progress-panel,
+.today,
+.devices {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(23, 34, 44, 0.9);
+  padding: 22px;
+}
+
+.days-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.days-left span {
+  font-size: clamp(56px, 12vw, 128px);
+  line-height: 0.95;
+  font-weight: 800;
+}
+
+.days-left small {
+  color: var(--muted);
+  font-size: 24px;
+}
+
+.time-grid,
+.metrics,
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.time-grid div,
+.metrics article,
+.device-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 16px;
+}
+
+.time-grid strong,
+.metrics strong {
+  display: block;
+  font-size: 26px;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-grid span,
+.metrics span,
+.device-grid span,
+.hint {
+  color: var(--muted);
+}
+
+.progress-panel {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.progress-ring {
+  width: 190px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle closest-side, var(--panel) 72%, transparent 73%),
+    conic-gradient(var(--accent) calc(var(--progress) * 1%), rgba(255, 255, 255, 0.1) 0);
+}
+
+.progress-ring span {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.controls {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+}
+
+input,
+textarea {
+  padding: 13px 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 13px 16px;
+  cursor: pointer;
+  border-color: rgba(94, 230, 168, 0.55);
+  background: var(--accent);
+  color: #102017;
+  font-weight: 700;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--accent);
+}
+
+.today {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+
+.actions {
+  display: grid;
+  align-content: end;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 24px, 560px);
+    padding: 20px 0;
+  }
+
+  .hero,
+  .dashboard,
+  .controls,
+  .today,
+  .time-grid,
+  .metrics,
+  .device-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    display: grid;
+  }
+
+  .sync-pill {
+    width: fit-content;
+  }
+}
+
