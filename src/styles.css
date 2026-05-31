@@ -75,8 +75,10 @@ h2 {
 }
 
 .dashboard,
+.quote-panel,
 .controls,
 .today,
+.checkin,
 .metrics,
 .devices {
   display: grid;
@@ -90,7 +92,9 @@ h2 {
 
 .primary-panel,
 .progress-panel,
+.quote-panel,
 .today,
+.checkin,
 .devices {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -170,7 +174,7 @@ h2 {
 }
 
 .controls {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 label {
@@ -214,7 +218,28 @@ button.secondary {
   color: var(--accent);
 }
 
+.quote-panel {
+  grid-template-columns: minmax(0, 1fr) 160px;
+  align-items: center;
+}
+
+blockquote {
+  margin: 0;
+  font-size: clamp(22px, 4vw, 34px);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.quote-source {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
 .today {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+
+.checkin {
   grid-template-columns: minmax(0, 1fr) 220px;
 }
 
@@ -222,6 +247,24 @@ button.secondary {
   display: grid;
   align-content: end;
   gap: 10px;
+}
+
+.action-link {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(94, 230, 168, 0.55);
+  border-radius: 8px;
+  padding: 13px 16px;
+  color: var(--accent);
+  text-align: center;
+  text-decoration: none;
+}
+
+.action-link.disabled {
+  pointer-events: none;
+  border-color: var(--line);
+  color: var(--muted);
+  opacity: 0.58;
 }
 
 @media (max-width: 760px) {
@@ -232,8 +275,10 @@ button.secondary {
 
   .hero,
   .dashboard,
+  .quote-panel,
   .controls,
   .today,
+  .checkin,
   .time-grid,
   .metrics,
   .device-grid {
@@ -248,4 +293,3 @@ button.secondary {
     width: fit-content;
   }
 }
-

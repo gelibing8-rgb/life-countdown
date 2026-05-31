@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101820" />
     <title>Life Countdown</title>
     <link rel="manifest" href="assets/manifest.webmanifest" />
-    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="src/styles.css?v=2" />
   </head>
   <body>
     <main class="app-shell">
@@ -39,6 +39,15 @@
         </div>
       </section>
 
+      <section class="quote-panel">
+        <div>
+          <p class="panel-label">今日金句</p>
+          <blockquote id="dailyQuote">--</blockquote>
+          <p class="quote-source" id="quoteSource"></p>
+        </div>
+        <button id="pinQuoteButton" class="secondary" type="button">固定金句</button>
+      </section>
+
       <section class="controls">
         <label>
           出生日期
@@ -52,6 +61,14 @@
           每日提醒时间
           <input id="reminderTime" type="time" value="08:00" />
         </label>
+        <label>
+          打卡联系人手机
+          <input id="contactPhone" type="tel" placeholder="用于生成短信" />
+        </label>
+        <label>
+          打卡联系人邮箱
+          <input id="contactEmail" type="email" placeholder="用于生成邮件" />
+        </label>
       </section>
 
       <section class="today">
@@ -63,6 +80,19 @@
           <button id="saveButton">保存</button>
           <button id="notifyButton" class="secondary">开启每日提醒</button>
           <button id="exportButton" class="secondary">导出数据</button>
+        </div>
+      </section>
+
+      <section class="checkin">
+        <div>
+          <p class="panel-label">一键打卡</p>
+          <h2>给重要联系人报个平安</h2>
+          <p class="hint" id="checkinSummary">保存联系人后，点击一次即可生成短信和邮件打卡信息。</p>
+        </div>
+        <div class="actions">
+          <button id="checkinButton" type="button">生成打卡信息</button>
+          <a id="smsLink" class="action-link disabled" href="#" aria-disabled="true">发送短信</a>
+          <a id="emailLink" class="action-link disabled" href="#" aria-disabled="true">发送邮件</a>
         </div>
       </section>
 
@@ -100,7 +130,6 @@
       </section>
     </main>
 
-    <script src="src/app.js"></script>
+    <script src="src/app.js?v=2"></script>
   </body>
 </html>
-
