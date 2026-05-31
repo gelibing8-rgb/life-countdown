@@ -1,4 +1,4 @@
-const cacheName = "life-countdown-v1";
+const cacheName = "life-countdown-v2";
 const assets = [
   "./",
   "./index.html",
@@ -24,4 +24,3 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request)));
 });
-
