@@ -18,6 +18,7 @@ const elements = {
   reminderTime: $("reminderTime"),
   contactPhone: $("contactPhone"),
   contactEmail: $("contactEmail"),
+  safetyGuardianEnabled: $("safetyGuardianEnabled"),
   todayFocus: $("todayFocus"),
   daysLeft: $("daysLeft"),
   yearsLeft: $("yearsLeft"),
@@ -59,9 +60,11 @@ function writeState() {
     reminderTime: elements.reminderTime.value || "08:00",
     contactPhone: elements.contactPhone.value.trim(),
     contactEmail: elements.contactEmail.value.trim(),
+    safetyGuardianEnabled: elements.safetyGuardianEnabled.checked,
     todayFocus: elements.todayFocus.value.trim(),
     pinnedQuoteIndex: readState().pinnedQuoteIndex,
     lastCheckinAt: readState().lastCheckinAt,
+    lastAutoCheckinDate: readState().lastAutoCheckinDate,
     updatedAt: new Date().toISOString(),
   };
   localStorage.setItem(storageKey, JSON.stringify(state, null, 2));
@@ -76,6 +79,7 @@ function loadState() {
   elements.reminderTime.value = state.reminderTime || "08:00";
   elements.contactPhone.value = state.contactPhone || "";
   elements.contactEmail.value = state.contactEmail || "";
+  elements.safetyGuardianEnabled.checked = state.safetyGuardianEnabled !== false;
   elements.todayFocus.value = state.todayFocus || "";
 }
 
@@ -165,7 +169,7 @@ function togglePinnedQuote() {
 function getLifeSnapshot() {
   const birthValue = elements.birthDate.value;
   const targetAge = Number(elements.targetAge.value || 80);
-  if (!birthValue) return "还未填写生日，今天先完成一次主动打卡。";
+  if (!birthValue) return "还未填写生日。今天已主动打开应用，完成一次平安确认。";
 
   const now = new Date();
   const birthDate = new Date(`${birthValue}T00:00:00`);
@@ -181,9 +185,9 @@ function buildCheckinMessage() {
     day: "2-digit",
     weekday: "long",
   });
-  const focus = elements.todayFocus.value.trim() || "今天保持稳定前进。";
+  const focus = elements.todayFocus.value.trim() || "今天已打开 Life Countdown，完成一次平安确认。";
   const quote = elements.dailyQuote.textContent;
-  return `今日打卡：${date}\n${getLifeSnapshot()}\n今天最重要的一件事：${focus}\n今日金句：${quote}`;
+  return `今日平安打卡：${date}\n${getLifeSnapshot()}\n守护状态：已主动打开应用并完成今日确认。\n今日重点：${focus}\n今日金句：${quote}`;
 }
 
 function setLinkState(link, href, enabled) {
@@ -192,11 +196,11 @@ function setLinkState(link, href, enabled) {
   link.setAttribute("aria-disabled", String(!enabled));
 }
 
-function createCheckinLinks() {
+function createCheckinLinks(options = {}) {
   const state = writeState();
   const message = buildCheckinMessage();
   const encodedMessage = encodeURIComponent(message);
-  const subject = encodeURIComponent("Life Countdown 今日打卡");
+  const subject = encodeURIComponent("Life Countdown 今日平安打卡");
   const hasPhone = Boolean(state.contactPhone);
   const hasEmail = Boolean(state.contactEmail);
 
@@ -211,8 +215,8 @@ function createCheckinLinks() {
   localStorage.setItem(storageKey, JSON.stringify(state, null, 2));
   renderCheckinSummary();
 
-  if (!hasPhone && !hasEmail) {
-    alert("请先填写打卡联系人手机或邮箱。");
+  if (!hasPhone && !hasEmail && !options.silent) {
+    alert("请先填写守护联系人手机或邮箱。");
   }
 }
 
@@ -225,7 +229,23 @@ function renderCheckinSummary() {
   const last = state.lastCheckinAt
     ? `上次打卡：${new Date(state.lastCheckinAt).toLocaleString("zh-CN")}`
     : "尚未打卡";
-  elements.checkinSummary.textContent = `${channels}。${last}。`;
+  const auto = state.safetyGuardianEnabled === false ? "每日自动生成已关闭" : "每日首次打开会自动生成平安打卡";
+  elements.checkinSummary.textContent = `${channels}。${last}。${auto}。`;
+}
+
+function maybeCreateDailySafetyCheckin() {
+  const state = readState();
+  const today = new Date().toISOString().slice(0, 10);
+  const hasContact = Boolean(state.contactPhone || state.contactEmail);
+  if (state.safetyGuardianEnabled === false || !hasContact || state.lastAutoCheckinDate === today) {
+    return;
+  }
+
+  createCheckinLinks({ silent: true });
+  const nextState = readState();
+  nextState.lastAutoCheckinDate = today;
+  localStorage.setItem(storageKey, JSON.stringify(nextState, null, 2));
+  renderCheckinSummary();
 }
 
 function renderPeriodProgress(now) {
@@ -308,13 +328,14 @@ elements.saveButton.addEventListener("click", writeState);
 elements.notifyButton.addEventListener("click", enableNotifications);
 elements.exportButton.addEventListener("click", exportData);
 elements.pinQuoteButton.addEventListener("click", togglePinnedQuote);
-elements.checkinButton.addEventListener("click", createCheckinLinks);
-["birthDate", "targetAge", "reminderTime", "contactPhone", "contactEmail", "todayFocus"].forEach((key) => {
+elements.checkinButton.addEventListener("click", () => createCheckinLinks());
+["birthDate", "targetAge", "reminderTime", "contactPhone", "contactEmail", "safetyGuardianEnabled", "todayFocus"].forEach((key) => {
   elements[key].addEventListener("change", writeState);
 });
 
 loadState();
 render();
+maybeCreateDailySafetyCheckin();
 registerServiceWorker();
 setInterval(render, 60000);
 if (Notification.permission === "granted") scheduleReminder();

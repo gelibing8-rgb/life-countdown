@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101820" />
     <title>Life Countdown</title>
     <link rel="manifest" href="assets/manifest.webmanifest" />
-    <link rel="stylesheet" href="src/styles.css?v=2" />
+    <link rel="stylesheet" href="src/styles.css?v=3" />
   </head>
   <body>
     <main class="app-shell">
@@ -14,7 +14,7 @@
         <div>
           <p class="eyebrow">Life Countdown</p>
           <h1>人生倒计时</h1>
-          <p class="subtitle">默认按 80 岁计算，把时间边界放回每天的屏幕上。</p>
+          <p class="subtitle">默认按 80 岁计算，同时为独居者和老人提供每日安全守护打卡。</p>
         </div>
         <div class="sync-pill" id="installStatus">本地优先 · PWA</div>
       </section>
@@ -69,6 +69,13 @@
           打卡联系人邮箱
           <input id="contactEmail" type="email" placeholder="用于生成邮件" />
         </label>
+        <label class="switch-field">
+          安全守护
+          <span>
+            <input id="safetyGuardianEnabled" type="checkbox" checked />
+            每日首次打开自动生成平安打卡
+          </span>
+        </label>
       </section>
 
       <section class="today">
@@ -83,14 +90,24 @@
         </div>
       </section>
 
+      <section class="safety-panel">
+        <div>
+          <p class="panel-label">安全守护</p>
+          <h2>给独居者和老人多一道每日确认</h2>
+          <p class="hint">
+            每天首次打开应用时，系统会自动生成一条平安打卡信息。当前网页版本不会静默发送短信或邮件，必须由用户点击确认发送，避免误发和隐私风险。
+          </p>
+        </div>
+      </section>
+
       <section class="checkin">
         <div>
-          <p class="panel-label">一键打卡</p>
+          <p class="panel-label">平安打卡</p>
           <h2>给重要联系人报个平安</h2>
-          <p class="hint" id="checkinSummary">保存联系人后，点击一次即可生成短信和邮件打卡信息。</p>
+          <p class="hint" id="checkinSummary">保存联系人后，点击一次即可生成短信和邮件平安打卡信息。</p>
         </div>
         <div class="actions">
-          <button id="checkinButton" type="button">生成打卡信息</button>
+          <button id="checkinButton" type="button">生成平安打卡</button>
           <a id="smsLink" class="action-link disabled" href="#" aria-disabled="true">发送短信</a>
           <a id="emailLink" class="action-link disabled" href="#" aria-disabled="true">发送邮件</a>
         </div>
@@ -116,7 +133,7 @@
         <div class="device-grid">
           <article>
             <strong>手机</strong>
-            <span>已支持 PWA 安装与本地提醒</span>
+            <span>已支持 PWA 安装、本地提醒和平安打卡</span>
           </article>
           <article>
             <strong>手表</strong>
@@ -130,6 +147,6 @@
       </section>
     </main>
 
-    <script src="src/app.js?v=2"></script>
+    <script src="src/app.js?v=3"></script>
   </body>
 </html>

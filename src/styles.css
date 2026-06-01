@@ -78,6 +78,7 @@ h2 {
 .quote-panel,
 .controls,
 .today,
+.safety-panel,
 .checkin,
 .metrics,
 .devices {
@@ -94,6 +95,7 @@ h2 {
 .progress-panel,
 .quote-panel,
 .today,
+.safety-panel,
 .checkin,
 .devices {
   border: 1px solid var(--line);
@@ -174,7 +176,7 @@ h2 {
 }
 
 .controls {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 label {
@@ -182,6 +184,23 @@ label {
   gap: 8px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.switch-field span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  padding: 0 14px;
+}
+
+.switch-field input {
+  width: auto;
+  accent-color: var(--accent);
 }
 
 input,
@@ -243,6 +262,13 @@ blockquote {
   grid-template-columns: minmax(0, 1fr) 220px;
 }
 
+.safety-panel {
+  border-color: rgba(94, 230, 168, 0.35);
+  background:
+    linear-gradient(135deg, rgba(94, 230, 168, 0.1), rgba(97, 199, 223, 0.05)),
+    rgba(23, 34, 44, 0.9);
+}
+
 .actions {
   display: grid;
   align-content: end;
@@ -278,6 +304,7 @@ blockquote {
   .quote-panel,
   .controls,
   .today,
+  .safety-panel,
   .checkin,
   .time-grid,
   .metrics,
