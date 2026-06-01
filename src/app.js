@@ -43,6 +43,8 @@ const elements = {
   installStatus: $("installStatus"),
 };
 
+const { daysBetween, getLocalDateKey } = window.LifeUtils;
+
 let reminderTimer = null;
 
 function readState() {
@@ -91,10 +93,6 @@ function addYears(date, years) {
 
 function percent(value) {
   return `${Math.max(0, Math.min(100, value)).toFixed(1)}%`;
-}
-
-function daysBetween(start, end) {
-  return Math.ceil((end.getTime() - start.getTime()) / 86400000);
 }
 
 function render() {
@@ -235,7 +233,7 @@ function renderCheckinSummary() {
 
 function maybeCreateDailySafetyCheckin() {
   const state = readState();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getLocalDateKey(new Date());
   const hasContact = Boolean(state.contactPhone || state.contactEmail);
   if (state.safetyGuardianEnabled === false || !hasContact || state.lastAutoCheckinDate === today) {
     return;

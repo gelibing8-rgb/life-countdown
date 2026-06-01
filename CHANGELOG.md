@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.1
+
+Fixed:
+
+1. Use local calendar dates for daily safety check-in keys instead of UTC dates.
+
+Added:
+
+1. Small utility module for date helpers.
+2. Basic tests for date key and countdown day calculations.
+
 ## 0.3.0
 
 Added:
