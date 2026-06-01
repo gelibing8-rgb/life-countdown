@@ -1,4 +1,4 @@
-const cacheName = "life-countdown-v2";
+const cacheName = "life-countdown-v3";
 const assets = [
   "./",
   "./index.html",
