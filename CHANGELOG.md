@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.2
+
+Changed:
+
+1. Opt GitHub Pages deployment actions into Node.js 24 to avoid upcoming Node.js 20 runner deprecation issues.
+
 ## 0.3.1
 
 Fixed:
