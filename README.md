@@ -30,6 +30,21 @@ https://gelibing8-rgb.github.io/life-countdown/
 
 This is an early open-source project with a working MVP, public repository, privacy notes, roadmap, release history, and PR-based iteration history. The next priority is to harden the safety-guardian workflow, add tests, improve accessibility for older users, and document wearable and notification integration boundaries.
 
+## Project Docs
+
+1. [Roadmap](docs/roadmap.md)
+2. [Privacy](PRIVACY.md)
+3. [Security](SECURITY.md)
+4. [Contributing](CONTRIBUTING.md)
+5. [Maintainer Notes](docs/maintainer-notes.md)
+6. [Open Source Maintenance Plan](docs/oss-maintenance-plan.md)
+7. [Release Checklist](docs/release-checklist.md)
+8. [GitHub Pages Deployment](docs/github-pages.md)
+9. [Safety Guardian Notes](docs/safety-guardian.md)
+10. [Wearable Integration Notes](docs/wearable-integration.md)
+11. [Suggested Issue Backlog](docs/issue-backlog.md)
+12. [Codex for Open Source Application Notes](docs/pro-application.md)
+
 ## 项目目标
 
 一、人不是缺少时间，而是缺少对时间边界的稳定感知；很多独居者和老人，也缺少一种低打扰、可持续的每日安全确认机制。
@@ -105,8 +120,16 @@ http://127.0.0.1:5173
 │   ├── icon.svg
 │   └── manifest.webmanifest
 ├── docs
+│   ├── application-improvement-checklist.md
+│   ├── github-pages.md
+│   ├── issue-backlog.md
+│   ├── maintainer-notes.md
+│   ├── oss-maintenance-plan.md
 │   ├── pro-application.md
-│   └── roadmap.md
+│   ├── release-checklist.md
+│   ├── roadmap.md
+│   ├── safety-guardian.md
+│   └── wearable-integration.md
 ├── LICENSE
 └── README.md
 ```

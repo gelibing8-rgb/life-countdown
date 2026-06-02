@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.3
+
+Added:
+
+1. Strengthened Codex for Open Source application notes.
+2. Added safety guardian and wearable integration documentation.
+3. Added open-source maintenance plan, release checklist, GitHub Pages deployment notes, and suggested issue backlog.
+4. Added pull request template and expanded issue templates for privacy, safety, and consent review.
+
 ## 0.3.2
 
 Changed:
