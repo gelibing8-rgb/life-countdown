@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.4
+
+Added:
+
+1. Static app-shell checks for linked assets, script ordering, and service worker cache coverage.
+
+Changed:
+
+1. Expanded `npm run check` to catch missing PWA shell assets before deployment.
+
 ## 0.3.3
 
 Added:
