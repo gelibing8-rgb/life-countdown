@@ -17,8 +17,9 @@ Current scope:
 1. Runs as a static PWA with no backend account system.
 2. Stores birth date, target age, reminder time, contacts, and check-in state locally.
 3. Generates daily safety check-in links through `sms:` and `mailto:` without sending messages silently.
-4. Includes a daily humanistic quote that can be pinned by the user.
-5. Provides a roadmap for Apple Watch, Wear OS, Health Connect, and Apple Health integration.
+4. Generates emergency `tel:`, `sms:`, and `mailto:` links for trusted-contact help requests.
+5. Includes a daily humanistic quote that can be pinned by the user.
+6. Provides a roadmap for Apple Watch, Wear OS, Health Connect, and Apple Health integration.
 
 Live demo target:
 
@@ -58,7 +59,8 @@ Life Countdown 用一个极简界面显示：
 5. 每日固定时间提醒；
 6. 每日人文金句，可固定喜欢的句子；
 7. 每日首次打开自动生成平安打卡信息；
-8. 一键生成给守护联系人发送的短信和邮件打卡信息。
+8. 一键生成给守护联系人发送的短信和邮件打卡信息；
+9. 一键生成电话、短信、邮件求救入口。
 
 项目面向长期主义、个人效率、独居安全、老人关怀、健康管理和可穿戴设备用户，强调隐私、本地优先和可解释。
 
@@ -76,8 +78,9 @@ Life Countdown 用一个极简界面显示：
 6. 支持深色工业风界面；
 7. 支持联系人手机、邮箱本地保存，并生成 `sms:` 与 `mailto:` 打卡入口；
 8. 支持安全守护模式：每日首次打开自动生成平安打卡；
-9. 无后端、无账号、无追踪；
-10. 适合继续扩展到 Apple Health、Health Connect、快捷指令、短信/邮件服务、智能手表表盘和桌面小组件。
+9. 支持一键求救入口：`tel:`、紧急 `sms:`、紧急 `mailto:`；
+10. 无后端、无账号、无追踪；
+11. 适合继续扩展到 Apple Health、Health Connect、快捷指令、短信/邮件服务、智能手表表盘和桌面小组件。
 
 ## 安全守护场景
 
@@ -88,9 +91,10 @@ Life Countdown 的第二个核心是“安全守护”。
 1. 独居老人每天早上打开应用，系统自动生成一条“今日平安打卡”；
 2. 用户点击短信或邮件入口，把打卡信息发送给子女、亲属或照护联系人；
 3. 联系人收到的信息包括打开日期、平安确认状态、人生倒计时摘要和当日金句；
-4. 后续版本可扩展为定时提醒、未打卡提示、家庭守护端、可穿戴设备确认和服务端通知。
+4. 紧急情况下，用户点击“一键求救”，生成拨打电话、求救短信和求救邮件入口；
+5. 后续版本可扩展为定时提醒、未打卡提示、家庭守护端、可穿戴设备确认和服务端通知。
 
-当前网页版本不会静默自动发送短信或邮件。原因是浏览器和手机系统通常要求用户确认外发短信或邮件，这也是避免误发、滥发和隐私风险的必要边界。
+当前网页版本不会静默自动拨号、发送短信或发送邮件。原因是浏览器和手机系统通常要求用户确认外发动作，这也是避免误发、滥发和隐私风险的必要边界。
 
 ## 快速运行
 
@@ -145,7 +149,8 @@ http://127.0.0.1:5173
 3. Android：通过 Health Connect 或桌面小组件显示；
 4. Apple Watch / Wear OS：通过独立表盘 complication 或同步小组件显示；
 5. 手环：优先采用厂商开放 API 或系统健康数据桥接，避免逆向和高风险登录；
-6. 家庭守护：在用户明确授权后，接入短信、邮件或消息服务，实现未打卡提醒和照护联系人通知。
+6. 一键求救：先通过手机端确认式 `tel:`、`sms:`、`mailto:` 实现，再研究 Apple Watch、Wear OS 或快捷指令触发；
+7. 家庭守护：在用户明确授权后，接入短信、邮件或消息服务，实现未打卡提醒和照护联系人通知。
 
 ## 隐私原则
 

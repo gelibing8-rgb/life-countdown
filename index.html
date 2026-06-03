@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101820" />
     <title>Life Countdown</title>
     <link rel="manifest" href="assets/manifest.webmanifest" />
-    <link rel="stylesheet" href="src/styles.css?v=3" />
+    <link rel="stylesheet" href="src/styles.css?v=5" />
   </head>
   <body>
     <main class="app-shell">
@@ -113,6 +113,22 @@
         </div>
       </section>
 
+      <section class="emergency-panel">
+        <div>
+          <p class="panel-label">一键求救</p>
+          <h2>紧急情况先联系守护联系人</h2>
+          <p class="hint" id="emergencySummary">
+            使用上方联系人手机和邮箱生成求救入口。网页版本不会自动拨号或静默发送，必须由用户在系统电话、短信或邮件客户端中确认。
+          </p>
+        </div>
+        <div class="actions">
+          <button id="emergencyButton" class="danger-button" type="button">生成求救入口</button>
+          <a id="callLink" class="action-link danger-link disabled" href="#" aria-disabled="true">拨打电话</a>
+          <a id="sosSmsLink" class="action-link danger-link disabled" href="#" aria-disabled="true">求救短信</a>
+          <a id="sosEmailLink" class="action-link danger-link disabled" href="#" aria-disabled="true">求救邮件</a>
+        </div>
+      </section>
+
       <section class="metrics">
         <article>
           <span>本年已过</span>
@@ -133,7 +149,7 @@
         <div class="device-grid">
           <article>
             <strong>手机</strong>
-            <span>已支持 PWA 安装、本地提醒和平安打卡</span>
+            <span>已支持 PWA 安装、本地提醒、平安打卡和一键求救入口</span>
           </article>
           <article>
             <strong>手表</strong>
@@ -147,7 +163,7 @@
       </section>
     </main>
 
-    <script src="src/life-utils.js?v=4"></script>
-    <script src="src/app.js?v=4"></script>
+    <script src="src/life-utils.js?v=5"></script>
+    <script src="src/app.js?v=5"></script>
   </body>
 </html>
