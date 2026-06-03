@@ -37,6 +37,11 @@ const elements = {
   checkinButton: $("checkinButton"),
   smsLink: $("smsLink"),
   emailLink: $("emailLink"),
+  emergencySummary: $("emergencySummary"),
+  emergencyButton: $("emergencyButton"),
+  callLink: $("callLink"),
+  sosSmsLink: $("sosSmsLink"),
+  sosEmailLink: $("sosEmailLink"),
   saveButton: $("saveButton"),
   notifyButton: $("notifyButton"),
   exportButton: $("exportButton"),
@@ -67,6 +72,7 @@ function writeState() {
     pinnedQuoteIndex: readState().pinnedQuoteIndex,
     lastCheckinAt: readState().lastCheckinAt,
     lastAutoCheckinDate: readState().lastAutoCheckinDate,
+    lastEmergencyAt: readState().lastEmergencyAt,
     updatedAt: new Date().toISOString(),
   };
   localStorage.setItem(storageKey, JSON.stringify(state, null, 2));
@@ -103,6 +109,7 @@ function render() {
   renderPeriodProgress(now);
   renderQuote(now);
   renderCheckinSummary();
+  renderEmergencySummary();
 
   if (!birthValue) {
     elements.daysLeft.textContent = "--";
@@ -188,6 +195,17 @@ function buildCheckinMessage() {
   return `今日平安打卡：${date}\n${getLifeSnapshot()}\n守护状态：已主动打开应用并完成今日确认。\n今日重点：${focus}\n今日金句：${quote}`;
 }
 
+function buildEmergencyMessage() {
+  const date = new Date().toLocaleString("zh-CN", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `紧急求助：${date}\n我可能需要帮助，请尽快联系我或到现场确认。\n${getLifeSnapshot()}\n说明：这是 Life Countdown 安全守护功能生成的求救信息。`;
+}
+
 function setLinkState(link, href, enabled) {
   link.href = enabled ? href : "#";
   link.classList.toggle("disabled", !enabled);
@@ -218,6 +236,31 @@ function createCheckinLinks(options = {}) {
   }
 }
 
+function createEmergencyLinks(options = {}) {
+  const state = writeState();
+  const message = buildEmergencyMessage();
+  const encodedMessage = encodeURIComponent(message);
+  const subject = encodeURIComponent("Life Countdown 紧急求助");
+  const hasPhone = Boolean(state.contactPhone);
+  const hasEmail = Boolean(state.contactEmail);
+
+  setLinkState(elements.callLink, `tel:${state.contactPhone}`, hasPhone);
+  setLinkState(elements.sosSmsLink, `sms:${state.contactPhone}?&body=${encodedMessage}`, hasPhone);
+  setLinkState(
+    elements.sosEmailLink,
+    `mailto:${state.contactEmail}?subject=${subject}&body=${encodedMessage}`,
+    hasEmail,
+  );
+
+  state.lastEmergencyAt = new Date().toISOString();
+  localStorage.setItem(storageKey, JSON.stringify(state, null, 2));
+  renderEmergencySummary();
+
+  if (!hasPhone && !hasEmail && !options.silent) {
+    alert("请先填写守护联系人手机或邮箱。");
+  }
+}
+
 function renderCheckinSummary() {
   const state = readState();
   const parts = [];
@@ -229,6 +272,18 @@ function renderCheckinSummary() {
     : "尚未打卡";
   const auto = state.safetyGuardianEnabled === false ? "每日自动生成已关闭" : "每日首次打开会自动生成平安打卡";
   elements.checkinSummary.textContent = `${channels}。${last}。${auto}。`;
+}
+
+function renderEmergencySummary() {
+  const state = readState();
+  const parts = [];
+  if (state.contactPhone) parts.push("电话/短信");
+  if (state.contactEmail) parts.push("邮件");
+  const channels = parts.length ? parts.join("和") : "未设置求救方式";
+  const last = state.lastEmergencyAt
+    ? `上次生成求救入口：${new Date(state.lastEmergencyAt).toLocaleString("zh-CN")}`
+    : "尚未生成求救入口";
+  elements.emergencySummary.textContent = `${channels}。${last}。点击后仍需在系统客户端中确认拨打或发送。`;
 }
 
 function maybeCreateDailySafetyCheckin() {
@@ -327,6 +382,7 @@ elements.notifyButton.addEventListener("click", enableNotifications);
 elements.exportButton.addEventListener("click", exportData);
 elements.pinQuoteButton.addEventListener("click", togglePinnedQuote);
 elements.checkinButton.addEventListener("click", () => createCheckinLinks());
+elements.emergencyButton.addEventListener("click", () => createEmergencyLinks());
 ["birthDate", "targetAge", "reminderTime", "contactPhone", "contactEmail", "safetyGuardianEnabled", "todayFocus"].forEach((key) => {
   elements[key].addEventListener("change", writeState);
 });

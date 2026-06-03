@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.5
+
+Added:
+
+1. One-click emergency help section for safety guardian scenarios.
+2. `tel:`, emergency `sms:`, and emergency `mailto:` link generation.
+3. Emergency message template that asks trusted contacts to contact or check on the user.
+
+Safety:
+
+1. The PWA still does not silently call or send messages; users must confirm in the phone, SMS, or email client.
+
 ## 0.3.4
 
 Added:

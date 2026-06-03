@@ -33,7 +33,18 @@ Potential wearable behavior should start with:
 1. Showing remaining days or weekly progress;
 2. Opening the phone app;
 3. Triggering a user-confirmed check-in;
-4. Avoiding silent contact notification.
+4. Triggering a user-confirmed emergency help flow;
+5. Avoiding silent contact notification.
+
+## Emergency trigger path
+
+One-click help should be staged carefully:
+
+1. PWA: generate `tel:`, `sms:`, and `mailto:` links for user confirmation;
+2. iOS Shortcuts: explore a shortcut that opens the emergency flow or prepares a message;
+3. Android: explore widgets or quick settings entry points;
+4. Apple Watch / Wear OS: research buttons, tiles, complications, and accidental-trigger cancellation;
+5. Vendor bands: use only documented APIs or system health bridges, never private reverse-engineered flows.
 
 ## Health data boundary
 
