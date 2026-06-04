@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.6
+
+Added:
+
+1. Emergency help confirmation checkbox before generating call, SMS, or email links.
+
+Changed:
+
+1. Emergency links are cleared and disabled until the user explicitly confirms they need help.
+
 ## 0.3.5
 
 Added:

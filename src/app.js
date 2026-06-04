@@ -38,6 +38,7 @@ const elements = {
   smsLink: $("smsLink"),
   emailLink: $("emailLink"),
   emergencySummary: $("emergencySummary"),
+  emergencyConfirmed: $("emergencyConfirmed"),
   emergencyButton: $("emergencyButton"),
   callLink: $("callLink"),
   sosSmsLink: $("sosSmsLink"),
@@ -110,6 +111,7 @@ function render() {
   renderQuote(now);
   renderCheckinSummary();
   renderEmergencySummary();
+  updateEmergencyControls();
 
   if (!birthValue) {
     elements.daysLeft.textContent = "--";
@@ -237,6 +239,14 @@ function createCheckinLinks(options = {}) {
 }
 
 function createEmergencyLinks(options = {}) {
+  if (!elements.emergencyConfirmed.checked) {
+    clearEmergencyLinks();
+    if (!options.silent) {
+      alert("请先勾选“我确认需要求助”。");
+    }
+    return;
+  }
+
   const state = writeState();
   const message = buildEmergencyMessage();
   const encodedMessage = encodeURIComponent(message);
@@ -261,6 +271,12 @@ function createEmergencyLinks(options = {}) {
   }
 }
 
+function clearEmergencyLinks() {
+  setLinkState(elements.callLink, "#", false);
+  setLinkState(elements.sosSmsLink, "#", false);
+  setLinkState(elements.sosEmailLink, "#", false);
+}
+
 function renderCheckinSummary() {
   const state = readState();
   const parts = [];
@@ -283,7 +299,18 @@ function renderEmergencySummary() {
   const last = state.lastEmergencyAt
     ? `上次生成求救入口：${new Date(state.lastEmergencyAt).toLocaleString("zh-CN")}`
     : "尚未生成求救入口";
-  elements.emergencySummary.textContent = `${channels}。${last}。点击后仍需在系统客户端中确认拨打或发送。`;
+  const confirm = elements.emergencyConfirmed.checked
+    ? "已确认需要求助"
+    : "生成求救入口前需先勾选确认";
+  elements.emergencySummary.textContent = `${channels}。${last}。${confirm}。点击后仍需在系统客户端中确认拨打或发送。`;
+}
+
+function updateEmergencyControls() {
+  const confirmed = elements.emergencyConfirmed.checked;
+  elements.emergencyButton.disabled = !confirmed;
+  if (!confirmed) {
+    clearEmergencyLinks();
+  }
 }
 
 function maybeCreateDailySafetyCheckin() {
@@ -383,6 +410,10 @@ elements.exportButton.addEventListener("click", exportData);
 elements.pinQuoteButton.addEventListener("click", togglePinnedQuote);
 elements.checkinButton.addEventListener("click", () => createCheckinLinks());
 elements.emergencyButton.addEventListener("click", () => createEmergencyLinks());
+elements.emergencyConfirmed.addEventListener("change", () => {
+  updateEmergencyControls();
+  renderEmergencySummary();
+});
 ["birthDate", "targetAge", "reminderTime", "contactPhone", "contactEmail", "safetyGuardianEnabled", "todayFocus"].forEach((key) => {
   elements[key].addEventListener("change", writeState);
 });
