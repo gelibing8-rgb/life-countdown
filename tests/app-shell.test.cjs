@@ -38,5 +38,25 @@ assert.ok(cachedAssets.includes("src/life-utils.js"), "Service worker must cache
 assert.ok(cachedAssets.includes("src/app.js"), "Service worker must cache app.js");
 assert.ok(cachedAssets.includes("assets/manifest.webmanifest"), "Service worker must cache manifest");
 
-console.log("app-shell tests passed");
+const requiredEmergencyIds = [
+  "emergencyConfirmed",
+  "emergencyButton",
+  "callLink",
+  "sosSmsLink",
+  "sosEmailLink",
+];
 
+for (const id of requiredEmergencyIds) {
+  assert.ok(html.includes(`id="${id}"`), `Missing emergency control: ${id}`);
+}
+
+assert.ok(
+  html.includes("我确认需要求助"),
+  "Emergency flow must include explicit confirmation copy",
+);
+assert.ok(
+  html.includes("emergencyButton") && html.includes("disabled"),
+  "Emergency button should start disabled until confirmation",
+);
+
+console.log("app-shell tests passed");

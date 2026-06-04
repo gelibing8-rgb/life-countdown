@@ -234,6 +234,11 @@ button {
   font-weight: 700;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 button.secondary {
   background: transparent;
   color: var(--accent);
@@ -243,6 +248,23 @@ button.secondary {
   background: var(--danger);
   border-color: rgba(255, 184, 107, 0.7);
   color: #211307;
+}
+
+.confirm-field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 46px;
+  border: 1px solid rgba(255, 184, 107, 0.42);
+  border-radius: 8px;
+  background: rgba(255, 184, 107, 0.08);
+  color: var(--danger);
+  padding: 0 12px;
+}
+
+.confirm-field input {
+  width: auto;
+  accent-color: var(--danger);
 }
 
 .quote-panel {

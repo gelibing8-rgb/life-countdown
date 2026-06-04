@@ -32,7 +32,8 @@ Current behavior:
 2. Generates a `tel:` link for calling the contact;
 3. Generates an emergency `sms:` link with a help request template;
 4. Generates an emergency `mailto:` link with the same help request;
-5. Requires user confirmation in the phone, SMS, or email client.
+5. Requires the user to check an in-app confirmation box before links are generated;
+6. Requires user confirmation in the phone, SMS, or email client.
 
 ## Risk boundaries
 
@@ -41,7 +42,8 @@ Current behavior:
 3. A completed check-in does not prove health or location;
 4. The workflow should not be used for coercive monitoring;
 5. Contact information should remain local unless a future version has explicit consent and clear deletion controls;
-6. Emergency help actions should remain explicit and user-confirmed unless a future native app has a clear legal, consent, and safety design.
+6. Emergency help actions should remain explicit and user-confirmed unless a future native app has a clear legal, consent, and safety design;
+7. The app should reduce accidental emergency actions with clear confirmation, large labels, and cancellation options.
 
 ## Future review questions
 

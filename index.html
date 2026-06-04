@@ -122,7 +122,11 @@
           </p>
         </div>
         <div class="actions">
-          <button id="emergencyButton" class="danger-button" type="button">生成求救入口</button>
+          <label class="confirm-field">
+            <input id="emergencyConfirmed" type="checkbox" />
+            我确认需要求助
+          </label>
+          <button id="emergencyButton" class="danger-button" type="button" disabled>生成求救入口</button>
           <a id="callLink" class="action-link danger-link disabled" href="#" aria-disabled="true">拨打电话</a>
           <a id="sosSmsLink" class="action-link danger-link disabled" href="#" aria-disabled="true">求救短信</a>
           <a id="sosEmailLink" class="action-link danger-link disabled" href="#" aria-disabled="true">求救邮件</a>
