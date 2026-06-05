@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.7
+
+Added:
+
+1. Safety-boundary regression checks for README, privacy notes, and safety guardian documentation.
+
+Changed:
+
+1. Expanded `npm run check` to protect the no-silent-call, no-silent-message, and user-confirmation commitments.
+
 ## 0.3.6
 
 Added:
