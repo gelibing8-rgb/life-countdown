@@ -44,10 +44,11 @@ This is an early open-source project with a working MVP, public repository, priv
 9. [Accessibility Checklist](docs/accessibility-checklist.md)
 10. [Privacy Impact Checklist](docs/privacy-impact-checklist.md)
 11. [iOS Shortcut Check-In Flow](docs/ios-shortcut-check-in.md)
-12. [Safety Guardian Notes](docs/safety-guardian.md)
-13. [Wearable Integration Notes](docs/wearable-integration.md)
-14. [Suggested Issue Backlog](docs/issue-backlog.md)
-15. [Codex for Open Source Application Notes](docs/pro-application.md)
+12. [Android Widget Options](docs/android-widget-options.md)
+13. [Safety Guardian Notes](docs/safety-guardian.md)
+14. [Wearable Integration Notes](docs/wearable-integration.md)
+15. [Suggested Issue Backlog](docs/issue-backlog.md)
+16. [Codex for Open Source Application Notes](docs/pro-application.md)
 
 ## 项目目标
 
@@ -128,6 +129,7 @@ http://127.0.0.1:5173
 │   └── manifest.webmanifest
 ├── docs
 │   ├── accessibility-checklist.md
+│   ├── android-widget-options.md
 │   ├── application-improvement-checklist.md
 │   ├── github-pages.md
 │   ├── ios-shortcut-check-in.md

@@ -42,7 +42,7 @@ Life Countdown follows a small-step roadmap. Each stage should remain privacy-fi
 ## 0.4.0 手机系统集成
 
 1. iOS 快捷指令示例文档；
-2. Android 小组件原型；
+2. Android 小组件路线调研；
 3. 通知策略优化；
 4. 本地日历提醒导出；
 5. PWA 安装体验优化；

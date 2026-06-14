@@ -17,9 +17,23 @@ assert.equal(
 );
 
 assert.equal(
+  getLocalDateKey(new Date(2026, 5, 1, 23, 59, 59)),
+  "2026-06-01",
+);
+
+assert.equal(
+  getLocalDateKey(new Date(2026, 5, 2, 0, 0, 0)),
+  "2026-06-02",
+);
+
+assert.equal(
   getLocalDateKey(new Date(2026, 11, 31, 23, 59, 59)),
   "2026-12-31",
 );
 
-console.log("life-utils tests passed");
+assert.equal(
+  getLocalDateKey(new Date("2026-06-01T23:30:00+08:00")),
+  getLocalDateKey(new Date(2026, 5, 1, 23, 30, 0)),
+);
 
+console.log("life-utils tests passed");

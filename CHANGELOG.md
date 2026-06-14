@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.10
+
+Added:
+
+1. Android widget options document with PWA-first, static widget, and dynamic widget tradeoffs.
+2. Additional local date-key tests for near-midnight and repeated daily check-in boundary cases.
+
+Changed:
+
+1. Linked Android widget options from README.
+2. Updated the roadmap wording for Android widget research.
+
 ## 0.3.9
 
 Added:
