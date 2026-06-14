@@ -41,10 +41,13 @@ This is an early open-source project with a working MVP, public repository, priv
 6. [Open Source Maintenance Plan](docs/oss-maintenance-plan.md)
 7. [Release Checklist](docs/release-checklist.md)
 8. [GitHub Pages Deployment](docs/github-pages.md)
-9. [Safety Guardian Notes](docs/safety-guardian.md)
-10. [Wearable Integration Notes](docs/wearable-integration.md)
-11. [Suggested Issue Backlog](docs/issue-backlog.md)
-12. [Codex for Open Source Application Notes](docs/pro-application.md)
+9. [Accessibility Checklist](docs/accessibility-checklist.md)
+10. [Privacy Impact Checklist](docs/privacy-impact-checklist.md)
+11. [iOS Shortcut Check-In Flow](docs/ios-shortcut-check-in.md)
+12. [Safety Guardian Notes](docs/safety-guardian.md)
+13. [Wearable Integration Notes](docs/wearable-integration.md)
+14. [Suggested Issue Backlog](docs/issue-backlog.md)
+15. [Codex for Open Source Application Notes](docs/pro-application.md)
 
 ## 项目目标
 
@@ -124,11 +127,14 @@ http://127.0.0.1:5173
 │   ├── icon.svg
 │   └── manifest.webmanifest
 ├── docs
+│   ├── accessibility-checklist.md
 │   ├── application-improvement-checklist.md
 │   ├── github-pages.md
+│   ├── ios-shortcut-check-in.md
 │   ├── issue-backlog.md
 │   ├── maintainer-notes.md
 │   ├── oss-maintenance-plan.md
+│   ├── privacy-impact-checklist.md
 │   ├── pro-application.md
 │   ├── release-checklist.md
 │   ├── roadmap.md

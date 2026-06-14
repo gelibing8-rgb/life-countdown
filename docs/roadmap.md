@@ -16,7 +16,7 @@ Life Countdown follows a small-step roadmap. Each stage should remain privacy-fi
 
 ## 0.2.0 开源协作版本
 
-状态：基本完成，继续补强
+状态：已完成，继续通过 issue 维护
 
 1. 增加英文 README 摘要；
 2. 增加贡献指南；
@@ -41,7 +41,7 @@ Life Countdown follows a small-step roadmap. Each stage should remain privacy-fi
 
 ## 0.4.0 手机系统集成
 
-1. iOS 快捷指令示例；
+1. iOS 快捷指令示例文档；
 2. Android 小组件原型；
 3. 通知策略优化；
 4. 本地日历提醒导出；

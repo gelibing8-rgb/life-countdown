@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.9
+
+Added:
+
+1. Accessibility checklist for older-adult and mobile usability reviews.
+2. Privacy impact checklist for contacts, notifications, health data, wearable devices, and outbound communication.
+3. iOS Shortcut check-in documentation that preserves user-confirmed safety boundaries.
+
+Changed:
+
+1. Linked the new maintenance documents from README.
+2. Updated the roadmap to reflect completed documentation maintenance items.
+
 ## 0.3.8
 
 Added:
