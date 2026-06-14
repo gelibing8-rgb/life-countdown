@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.8
+
+Added:
+
+1. Release metadata checks for package version, changelog coverage, live demo URL, and core documentation links.
+
+Changed:
+
+1. Expanded `npm run check` to catch missing release notes or public application materials before publishing.
+
 ## 0.3.7
 
 Added:
