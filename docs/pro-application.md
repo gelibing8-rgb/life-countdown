@@ -8,6 +8,10 @@ Life Countdown：面向手机与可穿戴设备的人生倒计时与安全守护
 
 https://github.com/gelibing8-rgb/life-countdown
 
+## Reviewer Evidence
+
+https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/reviewer-evidence.md
+
 ## English Summary
 
 Life Countdown is a local-first, privacy-conscious open-source PWA for life countdown and daily safety check-ins. It helps users see remaining time under a configurable life horizon, and helps people living alone, older adults, or vulnerable users send low-friction daily check-ins to trusted contacts through user-confirmed SMS or email links. The project intentionally avoids backend accounts, hidden tracking, silent outbound messages, and unnecessary health-data collection.
@@ -51,6 +55,14 @@ Life Countdown 默认按 80 岁计算人生倒计时，帮助用户在手机、�
 4. 设备集成调研：梳理 iOS Shortcut、Android widget、Apple Watch complication、Wear OS tile、Health Connect、Apple Health 的低风险集成路径。
 5. 合规边界：检查健康数据、通知、短信、邮件、可信联系人和老人关怀场景下的最小权限、用户同意和误报风险。
 6. 社区维护：把需求拆成小 issue，保持 PR 可审查、可测试、可回滚，避免引入过重后端或不必要依赖。
+
+## 已形成的维护证据
+
+1. 项目已有公开在线演示、README、隐私说明、安全说明、路线图和更新日志；
+2. 项目采用 PR、Release 和 GitHub Pages 部署形成可追溯维护记录；
+3. 已补充安全守护、可穿戴设备、iOS Shortcut、Android 小组件、无障碍、隐私影响和审核证据文档；
+4. 已通过 `npm run check` 保护日期计算、应用壳、外发消息边界、安全边界和发布资料一致性；
+5. 当前功能坚持用户确认外发动作，不静默拨号、发短信、发邮件，也不读取健康数据。
 
 ## 未来 90 天维护计划
 

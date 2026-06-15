@@ -48,7 +48,8 @@ This is an early open-source project with a working MVP, public repository, priv
 13. [Safety Guardian Notes](docs/safety-guardian.md)
 14. [Wearable Integration Notes](docs/wearable-integration.md)
 15. [Suggested Issue Backlog](docs/issue-backlog.md)
-16. [Codex for Open Source Application Notes](docs/pro-application.md)
+16. [Reviewer Evidence](docs/reviewer-evidence.md)
+17. [Codex for Open Source Application Notes](docs/pro-application.md)
 
 ## 项目目标
 
