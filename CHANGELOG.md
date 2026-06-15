@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.11
+
+Added:
+
+1. Reviewer evidence document with repository, live demo, PR, release, workflow, safety, privacy, and testing links.
+2. Application-material evidence section in the Codex for Open Source notes.
+
+Changed:
+
+1. Linked the reviewer evidence document from README.
+2. Expanded release metadata checks to protect the reviewer evidence page.
+
 ## 0.3.10
 
 Added:

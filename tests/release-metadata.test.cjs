@@ -32,6 +32,7 @@ const requiredDocLinks = [
   "docs/safety-guardian.md",
   "docs/wearable-integration.md",
   "docs/pro-application.md",
+  "docs/reviewer-evidence.md",
 ];
 
 for (const docLink of requiredDocLinks) {
@@ -50,5 +51,21 @@ assert.ok(
   releaseChecklist.includes("PRIVACY.md"),
   "Release checklist must require privacy review",
 );
+
+const reviewerEvidence = read("docs/reviewer-evidence.md");
+const requiredEvidence = [
+  "https://github.com/gelibing8-rgb/life-countdown",
+  "https://gelibing8-rgb.github.io/life-countdown/",
+  "npm run check",
+  "No silent phone calls, SMS messages, or emails",
+  "tests/safety-boundary.test.cjs",
+];
+
+for (const evidence of requiredEvidence) {
+  assert.ok(
+    reviewerEvidence.includes(evidence),
+    `Reviewer evidence must include: ${evidence}`,
+  );
+}
 
 console.log("release-metadata tests passed");
