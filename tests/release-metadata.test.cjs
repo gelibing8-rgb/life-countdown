@@ -33,6 +33,7 @@ const requiredDocLinks = [
   "docs/wearable-integration.md",
   "docs/pro-application.md",
   "docs/reviewer-evidence.md",
+  "docs/application-submission.md",
 ];
 
 for (const docLink of requiredDocLinks) {
@@ -59,12 +60,33 @@ const requiredEvidence = [
   "npm run check",
   "No silent phone calls, SMS messages, or emails",
   "tests/safety-boundary.test.cjs",
+  "docs/application-submission.md",
 ];
 
 for (const evidence of requiredEvidence) {
   assert.ok(
     reviewerEvidence.includes(evidence),
     `Reviewer evidence must include: ${evidence}`,
+  );
+}
+
+const submissionDraft = read("docs/application-submission.md");
+const requiredSubmissionClaims = [
+  "Life Countdown",
+  "older adults",
+  "people living alone",
+  "local-first",
+  "no analytics SDK",
+  "does not silently send messages, emails, or phone calls",
+  "ChatGPT Pro and Codex",
+  "GitHub Pages demo",
+  "npm run check",
+];
+
+for (const claim of requiredSubmissionClaims) {
+  assert.ok(
+    submissionDraft.includes(claim),
+    `Submission draft must include: ${claim}`,
   );
 }
 
