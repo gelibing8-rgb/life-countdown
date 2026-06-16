@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.12
+
+Added:
+
+1. Codex for Open Source submission draft with a direct application answer and short fallback answer.
+2. Reviewer evidence link to the submission draft.
+
+Changed:
+
+1. Linked the submission draft from README and the application notes.
+2. Expanded release metadata checks to protect the submission draft and its core review claims.
+
 ## 0.3.11
 
 Added:

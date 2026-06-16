@@ -50,6 +50,7 @@ This is an early open-source project with a working MVP, public repository, priv
 15. [Suggested Issue Backlog](docs/issue-backlog.md)
 16. [Reviewer Evidence](docs/reviewer-evidence.md)
 17. [Codex for Open Source Application Notes](docs/pro-application.md)
+18. [Codex for Open Source Submission Draft](docs/application-submission.md)
 
 ## 项目目标
 
