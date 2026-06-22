@@ -9,6 +9,7 @@ Life Countdown: a local-first life countdown and safety guardian PWA for older a
 1. Repository: https://github.com/gelibing8-rgb/life-countdown
 2. Live demo: https://gelibing8-rgb.github.io/life-countdown/
 3. Reviewer evidence: https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/reviewer-evidence.md
+4. Project impact: https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/project-impact.md
 
 ## Submission Text
 
@@ -22,6 +23,8 @@ The current project already includes a working PWA, GitHub Pages demo, MIT licen
 
 ChatGPT Pro and Codex would directly support real maintenance work: improving date and reminder tests, reviewing safety-guardian edge cases, hardening accessibility for older users, expanding privacy reviews, documenting wearable integration paths, improving issue triage, and keeping PRs small, reviewable, and testable. The goal is not to build a large backend product; the goal is to maintain a clear open-source example of privacy-first life countdown and daily safety guardianship.
 
+Although the project is early and does not claim broad adoption metrics, its ecosystem value is clear: it provides a concrete, working reference for consent-based safety check-ins without turning care into hidden monitoring or unnecessary health-data collection.
+
 ## Maintenance Proof Points
 
 1. The repository has repeated PR and release maintenance history.
@@ -29,6 +32,7 @@ ChatGPT Pro and Codex would directly support real maintenance work: improving da
 3. Runtime behavior is protected by tests for date logic, app shell integrity, safety boundaries, and release metadata.
 4. Sensitive behavior is documented before implementation.
 5. The project keeps a strict boundary against silent outbound communication and hidden health-data access.
+6. Project impact and short-term maintenance commitments are documented in `docs/project-impact.md`.
 
 ## Short Fallback Answer
 

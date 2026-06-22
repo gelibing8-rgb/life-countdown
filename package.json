@@ -1,6 +1,6 @@
 {
   "name": "life-countdown",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "description": "A local-first life countdown PWA that defaults to an 80-year lifespan.",
   "private": false,
   "license": "MIT",

@@ -34,6 +34,7 @@ const requiredDocLinks = [
   "docs/pro-application.md",
   "docs/reviewer-evidence.md",
   "docs/application-submission.md",
+  "docs/project-impact.md",
 ];
 
 for (const docLink of requiredDocLinks) {
@@ -61,6 +62,7 @@ const requiredEvidence = [
   "No silent phone calls, SMS messages, or emails",
   "tests/safety-boundary.test.cjs",
   "docs/application-submission.md",
+  "docs/project-impact.md",
 ];
 
 for (const evidence of requiredEvidence) {
@@ -81,12 +83,32 @@ const requiredSubmissionClaims = [
   "ChatGPT Pro and Codex",
   "GitHub Pages demo",
   "npm run check",
+  "ecosystem value",
 ];
 
 for (const claim of requiredSubmissionClaims) {
   assert.ok(
     submissionDraft.includes(claim),
     `Submission draft must include: ${claim}`,
+  );
+}
+
+const projectImpact = read("docs/project-impact.md");
+const requiredImpactClaims = [
+  "Public Need",
+  "Ecosystem Value",
+  "Maintenance Work Already Demonstrated",
+  "Next 30 Days",
+  "No silent phone calls, SMS messages, or emails",
+  "older adults",
+  "people living alone",
+  "Codex support",
+];
+
+for (const claim of requiredImpactClaims) {
+  assert.ok(
+    projectImpact.includes(claim),
+    `Project impact doc must include: ${claim}`,
   );
 }
 
