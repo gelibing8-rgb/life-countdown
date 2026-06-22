@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.13
+
+Added:
+
+1. Project impact and maintenance commitment document for reviewers.
+2. Short-term maintenance commitments for privacy, safety, accessibility, and mobile QA.
+
+Changed:
+
+1. Linked the impact document from README, reviewer evidence, application notes, and submission draft.
+2. Expanded release metadata checks to protect project-impact claims.
+
 ## 0.3.12
 
 Added:
