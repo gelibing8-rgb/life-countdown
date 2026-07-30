@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.14
+
+Added:
+
+1. Application status update dated 2026-07-30.
+2. Follow-up email wording for Codex for Open Source review.
+
+Changed:
+
+1. Linked the status update from README, reviewer evidence, and application notes.
+2. Updated the application improvement checklist with the latest status interpretation.
+
 ## 0.3.13
 
 Added:

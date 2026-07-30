@@ -35,6 +35,7 @@ const requiredDocLinks = [
   "docs/reviewer-evidence.md",
   "docs/application-submission.md",
   "docs/project-impact.md",
+  "docs/application-status-2026-07-30.md",
 ];
 
 for (const docLink of requiredDocLinks) {
@@ -63,6 +64,7 @@ const requiredEvidence = [
   "tests/safety-boundary.test.cjs",
   "docs/application-submission.md",
   "docs/project-impact.md",
+  "docs/application-status-2026-07-30.md",
 ];
 
 for (const evidence of requiredEvidence) {
@@ -109,6 +111,23 @@ for (const claim of requiredImpactClaims) {
   assert.ok(
     projectImpact.includes(claim),
     `Project impact doc must include: ${claim}`,
+  );
+}
+
+const applicationStatus = read("docs/application-status-2026-07-30.md");
+const requiredStatusClaims = [
+  "There is no verified evidence that the application has been approved yet",
+  "applications reviewed on a rolling basis",
+  "selected applicants notified by email",
+  "Latest release before this update",
+  "external adoption evidence",
+  "Follow-up on Codex for Open Source application",
+];
+
+for (const claim of requiredStatusClaims) {
+  assert.ok(
+    applicationStatus.includes(claim),
+    `Application status doc must include: ${claim}`,
   );
 }
 

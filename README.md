@@ -52,6 +52,7 @@ This is an early open-source project with a working MVP, public repository, priv
 17. [Codex for Open Source Application Notes](docs/pro-application.md)
 18. [Codex for Open Source Submission Draft](docs/application-submission.md)
 19. [Project Impact And Maintenance Commitment](docs/project-impact.md)
+20. [Application Status Update - 2026-07-30](docs/application-status-2026-07-30.md)
 
 ## 项目目标
 
@@ -134,6 +135,7 @@ http://127.0.0.1:5173
 │   ├── accessibility-checklist.md
 │   ├── android-widget-options.md
 │   ├── application-improvement-checklist.md
+│   ├── application-status-2026-07-30.md
 │   ├── github-pages.md
 │   ├── ios-shortcut-check-in.md
 │   ├── issue-backlog.md

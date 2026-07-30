@@ -11,6 +11,7 @@ This page gives reviewers a short evidence map for Life Countdown.
 5. GitHub Pages workflow: https://github.com/gelibing8-rgb/life-countdown/actions/workflows/pages.yml
 6. Submission draft: https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/application-submission.md
 7. Project impact: https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/project-impact.md
+8. Application status update: https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/application-status-2026-07-30.md
 
 ## What Is Working Now
 
@@ -41,6 +42,7 @@ This page gives reviewers a short evidence map for Life Countdown.
 6. Public release materials are covered by `tests/release-metadata.test.cjs`.
 7. The application submission draft is kept in `docs/application-submission.md`.
 8. Project impact and maintenance commitments are kept in `docs/project-impact.md`.
+9. Current application-status notes are kept in `docs/application-status-2026-07-30.md`.
 
 ## Why This Fits Open Source Support
 

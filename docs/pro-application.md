@@ -20,6 +20,10 @@ https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/application-submi
 
 https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/project-impact.md
 
+## Application Status Update
+
+https://github.com/gelibing8-rgb/life-countdown/blob/main/docs/application-status-2026-07-30.md
+
 ## English Summary
 
 Life Countdown is a local-first, privacy-conscious open-source PWA for life countdown and daily safety check-ins. It helps users see remaining time under a configurable life horizon, and helps people living alone, older adults, or vulnerable users send low-friction daily check-ins to trusted contacts through user-confirmed SMS or email links. The project intentionally avoids backend accounts, hidden tracking, silent outbound messages, and unnecessary health-data collection.
